@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Data Annotation-I</title>
+    <!-- jquery -->
+	<script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<!-- colorpicker -->
+	<script src="./bootstrapColorpicker/dist/js/bootstrap-colorpicker.js"></script>
+	<!-- inheretance library -->
+	<script src="./javaScript/base.js"></script>
+	<!-- main javascript -->
+	<script src="./javaScript/canvasPaint.js"></script>
+	<!-- css styles -->
+	<link rel="stylesheet" type="text/css" href="./css/style.css"/>
+	<link href="./bootstrapColorpicker/dist/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+</head>
+<body>
+	<div>
+		<h1 style="text-align: center;">ND Workplace</h1>
+	</div>
+	<div class="row rainbow" >
+		<div class="col-md-4">
+		  
+		  <div class="input-group colorPicker">
+				 <input type="text" value="#ff0000" class="form-control" placeholder="Type Hex code or Pick a color from the box -->"/>
+			  <span class="input-group-addon"><i></i></span>
+		  </div>
+	  </div>
+	  <div class="col-md-2 btn-group">
+			<button type="button" id="btnUndo" class="btn btn-default">Undo</button>
+			<button type="button" id="btnRedo" class="btn btn-default">Redo</button>
+	  </div>
+	  <div class="col-md-6 btn-group">
+			<button type="button" id="btnClear" class="btn btn-danger pull-right">Clear All</button>
+	  </div>
+  </div>
+  <b>Line size</b>
+  <select class="selectpicker" id="idLineSize">
+	  <option value=1>1</option>
+	  <option value=3>2</option>
+	  <option value=6>3</option>
+	  <option value=10>4</option>
+	  <option value=12>5</option>
+	  <option value=15>6</option>
+	  <option value=18>7</option>
+	  <option value=20>8</option>
+	  <option value=23>9</option>
+	  <option value=25>10</option>
+	  <option value=28>11</option>
+	  <option value=30>12</option>
+  </select>
+  <b style="text-align:end">_______________________________Pick a color from the box ^</b>
+	<div class="row">
+		<div id="lefthandSide" class="col-md-4 allButtons">
+			<span data-toggle="buttons">
+				<label class="btn btn-primary active">
+					<input type="radio" class="btn btn-primary "id="idRadioLine" name="rect" value="line" checked>Line<br>
+				</label>
+				<label class="btn btn-success active">
+					<input type="radio" id="idRadioRect" name="rect" value="rect">Rectangle<br>
+				</label>
+				<label class="btn btn-info active">
+					<input type="radio" id="idRadioCircle" name="rect" value="rect">Circle<br>
+				</label>
+				<label class="btn btn-warning active">
+					<input type="radio" id="idRadioPen" name="rect" value="rect">Pen<br>
+				</label>
+				
+				
+			</span>
+
+			 
+
+			<div id="leftHandSideDiv">
+				<a href="./page4.html"><button type="button"  class="btn btn-danger pull-right ">Next</button></a>
+				<button type="button" id="save" class="btn btn-dark pull-right ">Save</button>
+			</br></br>
+		</br>
+	</br>
+</br>
+			
+
+<p><b>Task:</b>Mark the orange balls/baubles from the Christmas tree </p>
+<p><i>-You can use the pen tool or circle tool </br>
+-use blue color </br>
+-once finished  click save</i></p>
+			</div>
+			
+		</div>
+		
+		<canvas style="background-image: url('./img/3.png');" id="myCanvas" width="1000" height="600"></canvas>
+	</div>
+	<input type="text" id="idTextBox" name="rect" hidden><br>
+	
+</body>
+<script>
+	window.onload = function () {
+		var canvas = document.getElementById("myCanvas");
+		  
+
+	
+
+// Handle Save Button
+var saveButton = document.getElementById('save');
+
+saveButton.addEventListener('click', function() {
+  var imageName = prompt('Please enter image name');
+  var canvasDataURL = canvas.toDataURL();
+  var a = document.createElement('a');
+  a.href = canvasDataURL;
+  a.download = imageName || 'drawing';
+  a.click();
+});
+	};
+</script>
+
+</html>
